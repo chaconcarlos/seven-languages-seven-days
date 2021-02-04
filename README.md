@@ -36,10 +36,10 @@
     <img src="resources/logo.jpg" alt="Logo" width="225" height="270">
   </a>
 
-  <h3 align="center">project_title</h3>
+  <h3 align="center">Practice for Seven Languages In Seven Weeks</h3>
 
   <p align="center">
-    project_description
+    Practice code for Bruce Tate's book. (In construction and constant update).
     <br />
     <a href="https://github.com/chaconcarlos/seven-languages-seven-weeks"><strong>Explore the docs »</strong></a>
     <br />
