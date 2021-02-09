@@ -18,8 +18,8 @@
 puts sentence #prints "My name is Jose"
 ```
 
-##Cheat sheet
-###if, else, unless statements
+## Cheat sheet
+### if, else, unless statements
 
 ```ruby
 if conditional [then]
@@ -37,7 +37,7 @@ unless conditional [then]
 end
 ```
 
-###Loops
+### Loops
 
 ```ruby
 while conditional [do]
