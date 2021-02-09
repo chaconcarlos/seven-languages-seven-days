@@ -6,7 +6,7 @@
 * Object-oriented means the language supports encapsulation (data and behavior are packaged together), inheritance through classes (object types are organized in a class tree), and polymorphism (objects can take many forms). Ruby is a pure object-oriented language.
  * Ruby is not hugely efficient in terms of execution speed, but it makes programmers very productive.
 
-##Day 1 Self-Study
+## Day 1 Self-Study
 
 * [The Ruby API](https://rubyapi.org/) 
 * [The free online version of Programming Ruby: The Pragmatic Programmer’s Guide [TFH08]](https://ruby-doc.com/docs/ProgrammingRuby/) 
