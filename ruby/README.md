@@ -14,6 +14,8 @@
 
  ```ruby
  sentence = "My name is Carlos"
+ sentence.sub! 'Carlos', 'Jose'
+putst sentence #prints "My name is Jose"
 ```
 
 ##Cheat sheet
@@ -34,7 +36,9 @@ unless conditional [then]
    code ]
 end
 ```
+
 ###Loops
+
 ```ruby
 while conditional [do]
    code
