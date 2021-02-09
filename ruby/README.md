@@ -17,12 +17,21 @@
  sentence.sub! 'Carlos', 'Jose'
 puts sentence #prints "My name is Jose"
 ```
-* Ruby’s regular expressions
+* [Ruby’s regular expressions](https://ruby-doc.org/core-2.5.1/Regexp.html)
  ```ruby
-# Find the word ''
+# Find the word 'any'
 " The bedding was hardly able to cover it and seemed ready to slide off any moment." =~ /any/
-#Outputs: 71
+# Outputs: 71
  ```
+ * [Information about Ruby’s ranges.](https://ruby-doc.org/core-2.5.1/Range.html)
+  ```ruby
+(-1..-5).to_a      #=> []
+(-5..-1).to_a      #=> [-5, -4, -3, -2, -1]
+('a'..'e').to_a    #=> ["a", "b", "c", "d", "e"]
+('a'...'e').to_a   #=> ["a", "b", "c", "d"]
+
+# A range is a Range object!
+   ```
 ## Cheat sheet
 ### if, else, unless statements
 
