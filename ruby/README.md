@@ -48,6 +48,7 @@ puts sentence #prints "My name is Jose"
    puts "This is sentence number #{i}"
  end
  ```
+ * Bonus problem: If you’re feeling the need for a little more, write a program that picks a random number. Let a player guess the number, telling the player whether the guess is too low or too high. [This is my solution.](https://github.com/chaconcarlos/seven-languages-seven-weeks/blob/main/ruby/day1-guess-number.rb) 
 ## Cheat sheet
 ### if, else, unless statements
 
