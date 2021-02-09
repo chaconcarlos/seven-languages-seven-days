@@ -49,6 +49,23 @@ puts sentence #prints "My name is Jose"
  end
  ```
  * Bonus problem: If you’re feeling the need for a little more, write a program that picks a random number. Let a player guess the number, telling the player whether the guess is too low or too high. [This is my solution.](https://github.com/chaconcarlos/seven-languages-seven-weeks/blob/main/ruby/day1-guess-number.rb) 
+ ```ruby
+ #!/usr/bin/env ruby 
+target = rand(20)
+guess  = nil
+
+while not guess == target
+	guess = gets.chomp.to_i
+
+	if guess > target
+		puts "Too High!"
+	elsif guess < target
+		puts "Too loooooooow"
+	else
+		puts "GOOD JOB!!!!!!"
+	end
+end
+```
 ## Cheat sheet
 ### if, else, unless statements
 
