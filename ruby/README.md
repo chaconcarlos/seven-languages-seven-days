@@ -42,6 +42,12 @@ puts sentence #prints "My name is Jose"
    puts "#{i}: My name is Carlos!"
  end
  ```
+ * Print the string “This is sentence number 1,” where the number 1 changes from 1 to 10.
+  ```ruby
+ for i in 1..10
+   puts "This is sentence number #{i}"
+ end
+ ```
 ## Cheat sheet
 ### if, else, unless statements
 
