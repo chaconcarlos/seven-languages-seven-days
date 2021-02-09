@@ -36,6 +36,12 @@ puts sentence #prints "My name is Jose"
  ```ruby
  puts "Hello World"
  ```
+ * Print your name ten times.
+ ```ruby
+ for i in 1..5
+ 	puts "#{i}: My name is Carlos!"
+ end
+ ```
 ## Cheat sheet
 ### if, else, unless statements
 
