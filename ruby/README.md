@@ -39,7 +39,7 @@ puts sentence #prints "My name is Jose"
  * Print your name ten times.
  ```ruby
  for i in 1..5
- 	puts "#{i}: My name is Carlos!"
+   puts "#{i}: My name is Carlos!"
  end
  ```
 ## Cheat sheet
