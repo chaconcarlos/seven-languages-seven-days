@@ -32,6 +32,10 @@ puts sentence #prints "My name is Jose"
 
 # A range is a Range object!
    ```
+* Print the string “Hello, world.”
+ ```ruby
+ puts "Hello World"
+ ```
 ## Cheat sheet
 ### if, else, unless statements
 
