@@ -20,8 +20,8 @@ puts sentence #prints "My name is Jose"
 * Ruby’s regular expressions
  ```ruby
 # Find the word ''
-"One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin." =~ /horrible/
-#Outputs: 105
+" The bedding was hardly able to cover it and seemed ready to slide off any moment." =~ /any/
+#Outputs: 71
  ```
 ## Cheat sheet
 ### if, else, unless statements
