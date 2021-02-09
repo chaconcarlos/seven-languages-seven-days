@@ -1,6 +1,6 @@
 # Seven languages in seven weeks: Ruby
 ## Day 1: Finding a Nanny
-* **Ruby is an interpreted, object-oriented, dynamically typed language from a family of so-called scripting languages. **
+* _Ruby is an interpreted, object-oriented, dynamically typed language from a family of so-called scripting languages. _
 * Interpreted means that Ruby code is executed by an interpreter rather than a compiler. 
 * Dynamically typed means that types are bound at execution time rather than compile time. In general, the trade-off for such a strategy is flexibility versus execution safety.
 * Object-oriented means the language supports encapsulation (data and behavior are packaged together), inheritance through classes (object types are organized in a class tree), and polymorphism (objects can take many forms). Ruby is a pure object-oriented language.
@@ -15,7 +15,7 @@
  ```ruby
  sentence = "My name is Carlos"
  sentence.sub! 'Carlos', 'Jose'
-putst sentence #prints "My name is Jose"
+puts sentence #prints "My name is Jose"
 ```
 
 ##Cheat sheet
