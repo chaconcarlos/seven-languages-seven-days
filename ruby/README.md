@@ -6,7 +6,7 @@
 * Object-oriented means the language supports encapsulation (data and behavior are packaged together), inheritance through classes (object types are organized in a class tree), and polymorphism (objects can take many forms). Ruby is a pure object-oriented language.
  * Ruby is not hugely efficient in terms of execution speed, but it makes programmers very productive.
 
-## Day 1 Self-Study
+### Day 1 Self-Study
 
 * [The Ruby API](https://rubyapi.org/) 
 * [The free online version of Programming Ruby: The Pragmatic Programmer’s Guide [TFH08]](https://ruby-doc.com/docs/ProgrammingRuby/) 
@@ -66,6 +66,9 @@ while not guess == target
 	end
 end
 ```
+## Day 2: Floating Down from the Sky
+* Every function returns something. If you do not specify an explicit return, the function will return the value of the last expression that’s processed before exiting. Like everything else, this function is an object. 
+
 ## Cheat sheet
 ### if, else, unless statements
 
@@ -104,4 +107,14 @@ for variable [, variable ...] in expression [do]
    code
 end
 ```
-###
+### Functions
+[Other languages have functions, procedures, methods, or routines, but in Ruby there is only the method---a chunk of expressions that return a value.](http://docs.ruby-doc.com/docs/ProgrammingRuby/) 
+```ruby
+def myNewMethod(arg1, arg2, arg3)     # 3 arguments
+  # Code for the method would go here
+end
+
+def myOtherNewMethod                  # No arguments
+  # Code for the method would go here
+end
+```
