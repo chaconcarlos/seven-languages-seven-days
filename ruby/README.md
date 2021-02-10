@@ -118,3 +118,17 @@ def myOtherNewMethod                  # No arguments
   # Code for the method would go here
 end
 ```
+### Arrays
+```ruby
+# Arrays work similar to Python. They can contain any type of object
+a = [ 42, "show", 1.21 ]
+puts a.length #Prints 3
+b = Array.new
+b[0] = "Test"
+b[1] = 2
+puts b # Prints ["Test", 2]
+puts b[-1] # Prints 2
+a = [1, 2, 3, 4, 5, 6, 7]
+# Arrays can work with ranges
+a[-3..-1] #=> [5, 6, 7]
+```
