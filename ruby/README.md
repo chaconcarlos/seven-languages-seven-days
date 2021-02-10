@@ -69,7 +69,7 @@ end
 ## Day 2: Floating Down from the Sky
 * Every function returns something. If you do not specify an explicit return, the function will return the value of the last expression that’s processed before exiting. Like everything else, this function is an object. 
 * Ruby has symbols, that unlike objects. Symbol is an identifier preceded with a colon, like :symbol. Symbols are great for naming things or ideas. Although two strings with the same value can be different physical strings, identical symbols are the same physical object. 
-* Arrays have an incredibly rich API. You can use an array as a queue, a linked list, a stack, or a set. Now, let’s take a look at the other major collection in Ruby, the hash.
+* Arrays have an incredibly rich API. You can use an array as a queue, a linked list, a stack, or a set. 
 ```ruby
 ​​>> 'string'.object_id​​
  ​​=> 3092010​​
