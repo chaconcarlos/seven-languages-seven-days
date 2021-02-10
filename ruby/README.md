@@ -68,7 +68,18 @@ end
 ```
 ## Day 2: Floating Down from the Sky
 * Every function returns something. If you do not specify an explicit return, the function will return the value of the last expression that’s processed before exiting. Like everything else, this function is an object. 
-
+* Ruby has symbols, that unlike objects. Symbol is an identifier preceded with a colon, like :symbol. Symbols are great for naming things or ideas. Although two strings with the same value can be different physical strings, identical symbols are the same physical object. 
+* Arrays have an incredibly rich API. You can use an array as a queue, a linked list, a stack, or a set. Now, let’s take a look at the other major collection in Ruby, the hash.
+```ruby
+​​>> 'string'.object_id​​
+ ​​=> 3092010​​
+ ​​>> 'string'.object_id​​
+ ​​=> 3089690​​
+ ​​>> :string.object_id​​
+ ​​=> 69618​​
+ ​​>> :string.object_id​​
+ ​​=> 69618​​
+```
 ## Cheat sheet
 ### if, else, unless statements
 
@@ -131,4 +142,18 @@ puts b[-1] # Prints 2
 a = [1, 2, 3, 4, 5, 6, 7]
 # Arrays can work with ranges
 a[-3..-1] #=> [5, 6, 7]
+```
+### Hashes
+```ruby
+dict = { "A" => 1, "B" => 2}
+dict["A"] #=> 1
+# Hashes can use symbols a indexes.
+test = {:test1 => 1, :test2 => 2}
+test[:test1] # => 1
+# Using a hash as named parameters for a function
+def show_hash_values(options={})
+  options.each do |key, value|
+    puts "#{key}: #{value}"
+  end
+end
 ```
