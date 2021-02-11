@@ -53,7 +53,7 @@ puts sentence #prints "My name is Jose"
  #!/usr/bin/env ruby 
 target = rand(20)
 guess  = nil
-
+https://git.smartmatic.net/engineering_client_side_b/esbu_dev_saes_cpp_framework/merge_requests/385/diffs
 while not guess == target
 	guess = gets.chomp.to_i
 
@@ -80,6 +80,7 @@ end
  ​​=> 69618​​
 ```
 * Arrays have an incredibly rich API. You can use an array as a queue, a linked list, a stack, or a set. 
+* You can specify code blocks with {/} or do/end. The typical Ruby convention is to use braces when your code block is on one line and use the do/end form when the code blocks span more than one line. Code blocks can take one or more parameters:
 ## Cheat sheet
 ### if, else, unless statements
 
@@ -156,4 +157,38 @@ def show_hash_values(options={})
     puts "#{key}: #{value}"
   end
 end
+```
+### Code blocks
+```ruby
+#A code block is a function without a name. You can pass it as a parameter to a function or a method.
+10.times { puts "I'll just repeat this real quick." } # 10 is an integer. 'times' is a method that repeats a piece code.
+
+test = {:test1 => 1, :test2 => 2}
+
+#Block that acts as a foreach
+test.each do |key, value|
+  puts "#{key}: #{value}"
+end
+
+#Blocks can be used to enforce policy:
+​​within_a_transaction do​​
+ ​​  things_that​​
+ ​​  must_happen_together​​
+ ​​end​​
+ ​​​​
+ ​​def within_a_transaction​​
+ ​​  begin_transaction​​
+ ​​  yield​​
+ ​​  end_transaction​​
+ ​​end
+ 
+ #To conditionally execute something:
+ ​​ ​​in_case_of_emergency do​​
+ ​​  use_credit_card​​
+ ​​  panic​​
+ ​​end​​
+ ​​​​
+ ​​def in_case_of_emergency​​
+ ​​  yield if emergency?​​ #this a boolean method. def emergency?
+ ​​end​​
 ```
