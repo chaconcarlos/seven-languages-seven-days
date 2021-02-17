@@ -218,4 +218,3 @@ end
  ​​  yield if emergency?​​ #this a boolean method. def emergency?
  ​​end​​
 ```
-### Mixins
