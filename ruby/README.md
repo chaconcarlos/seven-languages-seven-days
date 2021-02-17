@@ -80,7 +80,33 @@ end
  ​​=> 69618​​
 ```
 * Arrays have an incredibly rich API. You can use an array as a queue, a linked list, a stack, or a set. 
-* You can specify code blocks with {/} or do/end. The typical Ruby convention is to use braces when your code block is on one line and use the do/end form when the code blocks span more than one line. Code blocks can take one or more parameters:
+* You can specify code blocks with {/} or do/end. The typical Ruby convention is to use braces when your code block is on one line and use the do/end form when the code blocks span more than one line. Code blocks can take one or more parameters.
+* Object-oriented languages use inheritance to propagate behavior to similar objects. When the behaviors are not similar, either you can allow inheritance from more than one class (multiple inheritance) or you can look to another solution. Experience has shown that multiple inheritance is complicated and problematic. Java uses interfaces to solve this problem. Ruby uses modules. A module is a collection of functions and constants. When you include a module as part of a class, those behaviors and constants become part of the class.
+```ruby
+#This mixin adds a capability to the Person class, so it can save it's string representation to a file.
+ ​​module ToFile​​
+ ​​  def filename​​
+ ​​    "object_#{self.object_id}.txt"​​
+ ​​  end​​
+ ​​  def to_f​​
+ ​​    File.open(filename, 'w') {|f| f.write(to_s)}​​
+ ​​  end​​
+ ​​end​​
+ ​​​​
+ ​​class Person​​
+ ​​  include ToFile​​
+ ​​  attr_accessor :name​​
+ ​​​​
+ ​​  def initialize(name)​​
+ ​​    @name = name​​
+ ​​  end​​
+ ​​  def to_s​​
+ ​​    name​​
+ ​​  end​​
+ ​​end​​
+ ​​​​
+ ​​Person.new('matz').to_f​​
+ ```
 ## Cheat sheet
 ### if, else, unless statements
 
@@ -192,3 +218,4 @@ end
  ​​  yield if emergency?​​ #this a boolean method. def emergency?
  ​​end​​
 ```
+### Mixins
