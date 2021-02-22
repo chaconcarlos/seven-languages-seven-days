@@ -1,15 +1,15 @@
 # Seven languages in seven weeks: Ruby
 ## Day 1: Finding a Nanny
 * __Ruby is an interpreted, object-oriented, dynamically typed language from a family of so-called scripting languages.__
-* Interpreted means that Ruby code is executed by an interpreter rather than a compiler. 
+* Interpreted means that Ruby code is executed by an interpreter rather than a compiler.
 * Dynamically typed means that types are bound at execution time rather than compile time. In general, the trade-off for such a strategy is flexibility versus execution safety.
 * Object-oriented means the language supports encapsulation (data and behavior are packaged together), inheritance through classes (object types are organized in a class tree), and polymorphism (objects can take many forms). Ruby is a pure object-oriented language.
  * Ruby is not hugely efficient in terms of execution speed, but it makes programmers very productive.
 
 ### Day 1 Self-Study
 
-* [The Ruby API](https://rubyapi.org/) 
-* [The free online version of Programming Ruby: The Pragmatic Programmer’s Guide [TFH08]](https://ruby-doc.com/docs/ProgrammingRuby/) 
+* [The Ruby API](https://rubyapi.org/)
+* [The free online version of Programming Ruby: The Pragmatic Programmer’s Guide [TFH08]](https://ruby-doc.com/docs/ProgrammingRuby/)
  * A method that substitutes part of a string:
 
  ```ruby
@@ -48,9 +48,9 @@ puts sentence #prints "My name is Jose"
    puts "This is sentence number #{i}"
  end
  ```
- * Bonus problem: If you’re feeling the need for a little more, write a program that picks a random number. Let a player guess the number, telling the player whether the guess is too low or too high. [This is my solution.](https://github.com/chaconcarlos/seven-languages-seven-weeks/blob/main/ruby/day1-guess-number.rb) 
+ * Bonus problem: If you’re feeling the need for a little more, write a program that picks a random number. Let a player guess the number, telling the player whether the guess is too low or too high. [This is my solution.](https://github.com/chaconcarlos/seven-languages-seven-weeks/blob/main/ruby/day1-guess-number.rb)
  ```ruby
- #!/usr/bin/env ruby 
+ #!/usr/bin/env ruby
 target = rand(20)
 guess  = nil
 https://git.smartmatic.net/engineering_client_side_b/esbu_dev_saes_cpp_framework/merge_requests/385/diffs
@@ -67,8 +67,8 @@ while not guess == target
 end
 ```
 ## Day 2: Floating Down from the Sky
-* Every function returns something. If you do not specify an explicit return, the function will return the value of the last expression that’s processed before exiting. Like everything else, this function is an object. 
-* Ruby has symbols, that unlike objects. Symbol is an identifier preceded with a colon, like :symbol. Symbols are great for naming things or ideas. Although two strings with the same value can be different physical strings, identical symbols are the same physical object. 
+* Every function returns something. If you do not specify an explicit return, the function will return the value of the last expression that’s processed before exiting. Like everything else, this function is an object.
+* Ruby has symbols, that unlike objects. Symbol is an identifier preceded with a colon, like :symbol. Symbols are great for naming things or ideas. Although two strings with the same value can be different physical strings, identical symbols are the same physical object.
 ```ruby
 ​​>> 'string'.object_id​​
  ​​=> 3092010​​
@@ -79,7 +79,7 @@ end
  ​​>> :string.object_id​​
  ​​=> 69618​​
 ```
-* Arrays have an incredibly rich API. You can use an array as a queue, a linked list, a stack, or a set. 
+* Arrays have an incredibly rich API. You can use an array as a queue, a linked list, a stack, or a set.
 * You can specify code blocks with {/} or do/end. The typical Ruby convention is to use braces when your code block is on one line and use the do/end form when the code blocks span more than one line. Code blocks can take one or more parameters.
 * Object-oriented languages use inheritance to propagate behavior to similar objects. When the behaviors are not similar, either you can allow inheritance from more than one class (multiple inheritance) or you can look to another solution. Experience has shown that multiple inheritance is complicated and problematic. Java uses interfaces to solve this problem. Ruby uses modules. A module is a collection of functions and constants. When you include a module as part of a class, those behaviors and constants become part of the class.
 ```ruby
@@ -105,8 +105,48 @@ end
  ​​  end​​
  ​​end​​
  ​​​​
- ​​Person.new('matz').to_f​​
+ ​​Person.new('carlos').to_f​​ #Creates object_[OBJECT_ID].txt and writes 'carlos'
  ```
+### Day 2 Self-Study
+ * Find out how to access files with and without code blocks. What is the benefit of the code block?
+  ```ruby
+  def open(fname)
+    self.do_open(fname)
+    if block_given?
+      yield(self) # This will 'run' the block with given parameter
+      self.close # File is automatically closed after block is processed.
+    else
+      return self # This will just return some value
+    end
+  end
+
+  # With a block
+  File::open('example.txt','w') do |new_file|
+    new_file << 'lorem ipsum'
+  end
+
+  # No block
+  new_file = File::open('example.txt','w')
+  new_file << 'lorem ipsum'
+  new_file.close
+
+  f = File.open("the/file/path", "r")
+  f.each_line do |line|
+    puts line
+  end
+  f.close
+  ```
+ * How would you translate a hash to an array? Can you translate arrays to hashes?
+  ```ruby
+  # Array to hash
+  arr = ["apples", "bananas", "coconuts", "watermelons"]
+  ouput_hash = Hash[arr.collect { |v| [v, v] }]
+  # ouput_hash = {"apples"=>"apples", "bananas"=>"bananas", "coconuts"=>"coconuts", "watermelons"=>"watermelons"}
+
+  # Hash to array
+  ouput_hash.to_a
+  # => [["apples", "apples"], ["bananas", "bananas"], ["coconuts", "coconuts"], ["watermelons", "watermelons"]]
+  ```
 ## Cheat sheet
 ### if, else, unless statements
 
@@ -137,8 +177,8 @@ until conditional [do]
    code
 end
 
-begin 
-  code 
+begin
+  code
 end while conditional
 
 for variable [, variable ...] in expression [do]
@@ -146,7 +186,7 @@ for variable [, variable ...] in expression [do]
 end
 ```
 ### Functions
-[Other languages have functions, procedures, methods, or routines, but in Ruby there is only the method---a chunk of expressions that return a value.](http://docs.ruby-doc.com/docs/ProgrammingRuby/) 
+[Other languages have functions, procedures, methods, or routines, but in Ruby there is only the method---a chunk of expressions that return a value.](http://docs.ruby-doc.com/docs/ProgrammingRuby/)
 ```ruby
 def myNewMethod(arg1, arg2, arg3)     # 3 arguments
   # Code for the method would go here
@@ -207,7 +247,7 @@ end
  ​​  yield​​
  ​​  end_transaction​​
  ​​end
- 
+
  #To conditionally execute something:
  ​​ ​​in_case_of_emergency do​​
  ​​  use_credit_card​​
