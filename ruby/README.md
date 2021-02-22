@@ -147,6 +147,61 @@ end
   ouput_hash.to_a
   # => [["apples", "apples"], ["bananas", "bananas"], ["coconuts", "coconuts"], ["watermelons", "watermelons"]]
   ```
+ * Can you iterate through a hash?
+  ```ruby
+  arr = ["apples", "bananas", "coconuts", "watermelons"]
+  ouput_hash = Hash[arr.collect { |v| [v, v] }]
+
+  ouput_hash.each do |key, value|
+    puts "#{key}: #{value}"
+  end
+  ```
+ * You can use Ruby arrays as stacks. What other common data structures do arrays support?
+  ```ruby
+  # Stack
+  stack = []
+  stack.push("first")
+  stack.push("second")
+  puts stack.pop # => "second"
+
+  # Queue
+  queue = []
+  queue.unshift("first")
+  queue.unshift("second")
+  queue.unshift("third")
+  # => ["third", "second", "first"]
+  puts queue.shift # third
+  # queue => ["second", "first"]
+  ```
+ * Print the contents of an array of sixteen numbers, four numbers at a time, using just each. Now, do the same with each_slice in Enumerable.
+  ```ruby
+  # Fill the array
+  numbers = []
+
+  for i in 0..15
+    numbers.push(i)
+  end
+  # => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  current_slice = []
+  slice_count   = 1
+
+  numbers.each_with_index do |el, i|
+    current_slice.push(el)
+
+    if (current_slice.size == 4)
+      puts "Slice #{slice_count}: #{current_slice}"
+      current_slice.clear
+      slice_count += 1
+    end
+  end
+
+  # Output:
+  # Slice 1: [0, 1, 2, 3]
+  # Slice 2: [4, 5, 6, 7]
+  # Slice 3: [8, 9, 10, 11]
+  # Slice 4: [12, 13, 14, 15]
+  ```
+ * The Tree class was interesting, but it did not allow you to specify a new tree with a clean user interface. Let the initializer accept a nested structure of hashes. You should be able to specify a tree like this: {’grandpa’ => { ’dad’ => {’child 1’ => {}, ’child 2’ => {} }, ’uncle’ => {’child 3’ => {}, ’child 4’ => {} } } }.
 ## Cheat sheet
 ### if, else, unless statements
 
