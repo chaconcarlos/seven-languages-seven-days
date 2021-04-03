@@ -107,6 +107,7 @@ end
  ​​​​
  ​​Person.new('carlos').to_f​​ #Creates object_[OBJECT_ID].txt and writes 'carlos'
  ```
+ * Prefer ```unless ``` to ```if not ```.
 ### Day 2 Self-Study
  * Find out how to access files with and without code blocks. What is the benefit of the code block?
   ```ruby
@@ -202,6 +203,57 @@ end
   # Slice 4: [12, 13, 14, 15]
   ```
  * The Tree class was interesting, but it did not allow you to specify a new tree with a clean user interface. Let the initializer accept a nested structure of hashes. You should be able to specify a tree like this: {’grandpa’ => { ’dad’ => {’child 1’ => {}, ’child 2’ => {} }, ’uncle’ => {’child 3’ => {}, ’child 4’ => {} } } }.
+  ```ruby
+  class Tree
+  attr_accessor :children, :node_name
+
+  def initialize(name="", children=[], tree_map={})
+    @children = children
+    @node_name = name
+
+    build(tree_map)
+  end
+
+  def build(tree_map = {})
+    unless tree_map.empty?
+      @node_name.clear()
+      @children.clear()
+
+      if tree_map.length > 1
+        raise "Too many root nodes. #{tree_map}"
+      end
+
+      node_keys     = tree_map.keys
+      @node_name    = node_keys[0]
+      node_children = tree_map[node_name]
+
+      node_children.each do | children_name, next_level_children |
+        @children.append(Tree.new("", [], { children_name => next_level_children }))
+      end
+    end
+  end
+
+  def visit(&block)
+    block.call self
+  end
+
+  def visit_all(&block)
+    visit &block
+    children.each { |c| c.visit_all &block }
+  end
+end
+
+map  = { 'grandpa' => { 'dad' => { 'child 1' => {}, 'child 2' => {} }, 'uncle' => { 'child 3' => {}, 'child 4' => {} } } }
+puts map
+ruby_tree = Tree.new("", [], map)
+
+puts "Visiting a node"
+ruby_tree.visit { |node| puts node.node_name }
+puts
+
+puts "Visiting entire tree"
+ruby_tree.visit_all { |node| puts node.node_name }
+  ```
 ## Cheat sheet
 ### if, else, unless statements
 
@@ -214,6 +266,7 @@ if conditional [then]
    code...]
 end
 
+# Should prefer unless over if not.
 unless conditional [then]
    code
 [else
