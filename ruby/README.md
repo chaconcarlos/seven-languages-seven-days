@@ -253,7 +253,9 @@ puts
 
 puts "Visiting entire tree"
 ruby_tree.visit_all { |node| puts node.node_name }
-  ```
+```
+* Write a simple grep that will print the lines of a file having any occurrences of a phrase anywhere in that line. You will need to do a simple regular expression match and read lines from a file. (This is surprisingly simple in Ruby.) If you want, include line numbers.
+
 ## Cheat sheet
 ### if, else, unless statements
 
