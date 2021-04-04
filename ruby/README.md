@@ -53,7 +53,7 @@ puts sentence #prints "My name is Jose"
  #!/usr/bin/env ruby
 target = rand(20)
 guess  = nil
-https://git.smartmatic.net/engineering_client_side_b/esbu_dev_saes_cpp_framework/merge_requests/385/diffs
+
 while not guess == target
 	guess = gets.chomp.to_i
 
@@ -298,6 +298,9 @@ else
   print_help()
 end
 ```
+## Day 3: Serious Change
+* One of the main nontrivial problems that Ruby solves well is metaprogamming. Metaprogramming means writing programs that write programs. 
+
 ## Cheat sheet
 ### if, else, unless statements
 
