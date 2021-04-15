@@ -2,7 +2,8 @@
 ## My take on Ruby
 Coming from a statically typed language as C++ (which I have been working for 8 years at the time I wrote this), it's weird for me to be able to transform or add behavior to classes dynamically, which reminds of .NET and Reflection but in a much more simpler way. Although I would be very cautious on using any of the open classes features, it makes me think that Ruby is a language that has an awesome user interface for us, the developers.
 
-Making the code more readable is one the most important skills a software engineer can have, and a language that is "software engineer friendly" certaintly is a powerful tool. However, in this case, this tool can be too powerful and prone to abuse. I can imagine Ruby code growing ad-hoc and a careless developer adding an utility method to the base class Class; or as the book said, overriding Class.new.
+Making the code more readable is one the most important skills a software engineer can have, and a language that is friendly to that certaintly is a powerful tool. However, in this case, this tool can be too powerful and prone to abuse. I can imagine Ruby code growing ad-hoc and a careless developer adding an utility method to the base class Class; or as the book said, overriding Class.new.
+
 Probably the best approach is to consider the size of the team, the maturity of its members, how close they are able to follow the design of the system and its components and the codebase guidelines/conventions/standards, to avoid unnecesary micromanaging and also avoid expensive errors, less readable code, and a less flexible codebase.
 ## Day 1: Finding a Nanny
 * __Ruby is an interpreted, object-oriented, dynamically typed language from a family of so-called scripting languages.__
