@@ -299,8 +299,113 @@ else
 end
 ```
 ## Day 3: Serious Change
-* One of the main nontrivial problems that Ruby solves well is metaprogamming. Metaprogramming means writing programs that write programs. 
+* One of the main nontrivial problems that Ruby solves well is metaprogamming. Metaprogramming means writing programs that write programs.
+* Ruby has *open classes*. This means that it's possible to change the definition of a class at any time, usually to add behavior.
+```ruby
+#Example from the book. This code adds a method blank? to NilClass and String.
+ ​​class NilClass​​
+ ​​  def blank?​​
+ ​​    true​​
+ ​​  end​​
+ ​​end​​
+ ​​​​
+ ​​class String​​
+ ​​  def blank?​​
+ ​​    self.size == 0​​
+ ​​  end​​
+ ​​end​​
+ ​​​​
+ ​​["", "person", nil].each do |element|​​
+ ​​  puts element unless element.blank?​​
+ ​​end​​
+```
+* It's possible to even redefine Class.new, breaking Ruby. A trade-off for the freedom of having open classes, which could be useful for writing more readable code. However, I think this adds a layer to the design that should be addressed in a planned way, and not ad-hoc way (which can potentially end up breaking the design, the app, and worse, the language!). With great power comes great responsibility.
+### Day 3 Self-Study
+Modify the CSV application to support an each method to return a CsvRow object. Use method_missing on that CsvRow to return the value for the column for a given heading. For example, for the file:
+```ruby
+one, two
+lions, tigers
+```
+allow an API that works like this:
+```ruby
+csv = RubyCsv.new
+csv.each {|row| puts row.one} # This should print "lions" .
+```
+This is my solution:
+```ruby
+module ActsAsCsv
+  def self.included(base)
+    base.extend ClassMethods
+    puts "I was included :)"
+  end
 
+  module ClassMethods
+    def acts_as_csv
+      include InstanceMethods
+    end
+  end
+
+  module InstanceMethods
+    class CsvRow
+      def method_missing(name, *args)
+        column_name = name.to_s
+        @row[column_name]
+      end
+
+      def initialize(columns=[], values=[])
+        @row   = {}
+
+        if columns.length < 1
+          raise "No columns given."
+        end
+
+        if values.length < 1
+          raise "No values given."
+        end
+
+        columns.each_with_index do | column_name, index |
+          @row[column_name] = values[index]
+        end
+      end
+    end
+
+    def read
+      @csv_contents = []
+      filename = self.class.to_s.downcase + '.txt'
+      file = File.new(filename)
+      @headers = file.gets.chomp.split(', ' )
+
+      file.each do |row|
+        @csv_contents << row.chomp.split(', ' )
+      end
+    end
+
+    attr_accessor :headers, :csv_contents
+    def initialize
+      read
+    end
+
+    def each
+      @csv_contents.each do |line|
+        yield(CsvRow.new(@headers, line))
+      end
+    end
+  end
+end
+
+class RubyCsv # no inheritance! You can mix it in
+  include ActsAsCsv
+  acts_as_csv
+end
+
+m = RubyCsv.new
+puts m.headers.inspect
+puts m.csv_contents.inspect
+
+m.each do |csv_row|
+  puts csv_row.Column1
+end
+```
 ## Cheat sheet
 ### if, else, unless statements
 
